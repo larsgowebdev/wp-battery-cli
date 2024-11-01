@@ -1,0 +1,12 @@
+<?php
+
+/*
+ * Auto-generated render function for this block.
+ * Render functions must contain the word 'render'. You can define multiple functions -
+ * WP-Battery will find all of them and add them to the hook in order of appearance
+ */
+function render_###block-name_function_name###_block($context)
+{
+    //$context['foo'] = 'bar';
+    return $context;
+}

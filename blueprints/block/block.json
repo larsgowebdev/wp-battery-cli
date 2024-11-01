@@ -1,0 +1,18 @@
+{
+  "name": "acf/###block-name###",
+  "title": "###block-title###",
+  "description": "",
+  "style": [ "file:./assets/###block-name###-style-all.css", "###block-name###-style-all" ],
+  "viewStyle": [ "file:./assets/###block-name###-style-frontend.css", "###block-name###-style-frontend" ],
+  "editorStyle": [ "file:./assets/###block-name###-style-editor.css", "###block-name###-style-editor" ],
+  "script": [ "file:./assets/###block-name###-all.css", "###block-name###-script-all" ],
+  "viewScript": [ "file:./assets/###block-name###-frontend.css", "###block-name###-script-frontend" ],
+  "editorScript": [ "file:./assets/###block-name###-editor.css", "###block-name###-script-editor" ],
+  "category": "common",
+  "icon": "visibility",
+  "keywords": ["###block-name###"],
+  "acf": {
+    "mode": "preview",
+    "renderCallback": ["Larsgowebdev\\WPBattery\\Renderer\\BlockRenderer", "renderACFBlock"]
+  }
+}

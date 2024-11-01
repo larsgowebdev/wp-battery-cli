@@ -1,0 +1,7 @@
+<?php
+
+function render_###page-name_function_name###_page($context)
+{
+    //$context['foo'] = 'bar';
+    return $context;
+}

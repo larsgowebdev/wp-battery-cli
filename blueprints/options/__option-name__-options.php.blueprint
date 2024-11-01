@@ -1,0 +1,13 @@
+<?php
+
+return [
+    '###option-name###' =>
+        [
+            'page_title'    => '###option-name###',
+            'menu_title'    => '###option-name###',
+            'menu_slug'     => '###option-name###',
+            'capability'    => 'edit_posts',
+            'position'      => '25',
+            'redirect'      => false
+        ]
+];
