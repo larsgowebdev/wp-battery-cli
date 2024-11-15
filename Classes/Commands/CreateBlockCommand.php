@@ -16,6 +16,7 @@ class CreateBlockCommand extends AbstractBlueprintCommand
     public function __construct()
     {
         $this->blueprintType = 'block';
+        $this->blueprintTypeName = 'Block';
         $this->requiredArgs = ['name', 'title'];
         $this->markers = [
             'block-name' => 'name',

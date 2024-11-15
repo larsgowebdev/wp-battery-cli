@@ -12,6 +12,7 @@ class CreatePageCommand extends AbstractBlueprintCommand
     public function __construct()
     {
         $this->blueprintType = 'pages';
+        $this->blueprintTypeName = 'Page';
         $this->requiredArgs = ['name'];
         $this->markers = [
             'page-name' => 'name'

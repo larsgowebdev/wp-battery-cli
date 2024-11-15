@@ -16,6 +16,7 @@ class CreateMenuCommand extends AbstractBlueprintCommand
     public function __construct()
     {
         $this->blueprintType = 'menus';
+        $this->blueprintTypeName = 'Menu';
         $this->markers = [
             'menu-name' => 'name'
         ];
