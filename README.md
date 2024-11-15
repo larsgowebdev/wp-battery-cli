@@ -31,6 +31,7 @@ wp help create-wpb-block
 ### Initialize WP-Battery Structure
 Creates the required folder structure for a WP-Battery theme.
 
+**Usage:**
 ```bash
 wp init-wpb
 ```
@@ -50,11 +51,16 @@ wpb/
 ### Create Block
 Creates a new block with required files and structure.
 
+**Required arguments:**
+- **--name**: Identifier of the block, it will be registered to that name and the folder structure will be named after it.
+- **--title**: Name of the block, displayed in the WP admin area
+
+**Usage:**
 ```bash
 wp create-wpb-block --name=my-block --title="My Block"
 ```
 
-Creates:
+**Creates:**
 ```
 blocks/my-block/
 ├── assets/
@@ -72,11 +78,15 @@ blocks/my-block/
 ### Create Page Template
 Creates a new page template with required files.
 
+**Required arguments:**
+- **--name**: Identifier of the page, the template will be named after it.
+
+**Usage:**
 ```bash
 wp create-wpb-page --name=standard
 ```
 
-Creates:
+**Creates:**
 ```
 pages/standard/
 ├── standard-page-renderer.php
@@ -86,11 +96,15 @@ pages/standard/
 ### Create Menu Configuration
 Creates a new menu configuration file.
 
+**Required arguments:**
+- **--name**: Identifier of the menu, the configuration file will be named after it
+
+**Usage:**
 ```bash
 wp create-wpb-menu --name=main
 ```
 
-Creates:
+**Creates:**
 ```
 menus/main-menu.php
 ```
@@ -98,13 +112,53 @@ menus/main-menu.php
 ### Create Options Page
 Creates a new ACF options page configuration.
 
+**Required arguments:**
+- **--name**: Identifier of the options page, the configuration file will be named after it
+
+**Usage:**
 ```bash
 wp create-wpb-options --name=site
 ```
 
-Creates:
+**Creates:**
 ```
 options/site-options.php
+```
+
+### Create Custom Post Type
+Creates a custom post type configuration file to be automatically loaded by WP-Battery.
+
+Required arguments:
+- **--name**: Identifier of the post type, the configuration file will be named after it
+- **--namespace**: Plugin/Theme namespace, for translations
+
+**Usage:**
+```bash
+wp create-wpb-post-type --name=product --namespace=my-theme
+```
+
+**Creates:**
+```
+post-types/post-type-products.php
+```
+
+### Create Custom Taxonomy
+Creates a custom taxonomy configuration file to be automatically loaded by WP-Battery.
+
+**Required arguments:**
+- **--name**: Identifier of the taxonomy, the configuration file will be named after it
+- **--namespace**: Plugin/Theme namespace, for translations
+- **--post-type**: Which post type this taxonomy will be registered for 
+  - Note: Currently WP-Battery CLI only supports a single post type here. Of course, more can be added later.
+
+**Usage:**
+```bash
+wp create-wpb-taxonomy --name=product-category --namespace=my-theme --post-type=product
+```
+
+**Creates:**
+```
+taxonomies/taxonomy-product-category.php
 ```
 
 ## Naming Conventions
@@ -124,6 +178,9 @@ wp create-wpb-block --name=hero-section --title="Hero Section"
 wp create-wpb-block --name=testimonials --title="Testimonials"
 wp create-wpb-page --name=standard
 wp create-wpb-menu --name=footer-menu
+wp create-wpb-options --name=site
+wp create-wpb-post-type --name=product --namespace=my-theme
+wp create-wpb-taxonomy --name=product-category --namespace=my-theme --post-type=product
 
 # Invalid names
 wp create-wpb-block --name="Hero Section" # Contains spaces
@@ -131,47 +188,11 @@ wp create-wpb-block --name="MYBLOCK"      # Contains uppercase
 wp create-wpb-block --name="-block-"      # Starts/ends with hyphen
 ```
 
-## Component Structure
-
-### Blocks
-Each block consists of:
-- `block.json`: Block configuration
-- `*-block-template.twig`: Twig template for the block
-- `*-block-renderer.php`: Optional PHP renderer for additional data processing
-
-### Pages
-Each page template consists of:
-- `*-page-template.twig`: Base Twig template
-- `*-page-renderer.php`: Optional PHP renderer for additional data processing
-
-### Menus
-Menu configuration files return an array defining the menu structure:
-```php
-return [
-    'Menu Name' => [
-        'items' => []
-    ]
-];
-```
-
-### Options
-Options configuration files return an array defining the ACF options page:
-```php
-return [
-    'identifier' => [
-        'page_title' => 'Page Title',
-        'menu_title' => 'Menu Title',
-        'menu_slug'  => 'menu-slug',
-        'capability' => 'edit_posts',
-        'position'   => '25',
-        'redirect'   => false
-    ]
-];
-```
+----
 
 ## Renderer Functions
 
-Both blocks and pages support render functions for data processing. These functions must:
+Both blocks and pages support custom render functions for data processing. These functions must:
 - Contain the word 'render' in their name
 - Accept one parameter ($context)
 - Return the modified context
