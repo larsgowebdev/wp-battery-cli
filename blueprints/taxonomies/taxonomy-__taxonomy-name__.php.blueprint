@@ -1,0 +1,29 @@
+<?php
+
+return [
+    '###taxonomy-name###' => [
+        'labels' => [
+            'name' => _x( '###taxonomy-name###', '###theme-domain###'),
+            'singular_name' => _x( '###taxonomy-name###', '###theme-domain###'),
+            'search_items' =>  __( 'Search ###taxonomy-name###', '###theme-domain###'),
+            'all_items' => __( 'All ###taxonomy-name###', '###theme-domain###'),
+            'parent_item' => __( 'Parent ###taxonomy-name###', '###theme-domain###'),
+            'parent_item_colon' => __( 'Parent ###taxonomy-name###:', '###theme-domain###'),
+            'edit_item' => __( 'Edit ###taxonomy-name###', '###theme-domain###'),
+            'update_item' => __( 'Update ###taxonomy-name###', '###theme-domain###'),
+            'add_new_item' => __( 'Add ###taxonomy-name###', '###theme-domain###'),
+            'new_item_name' => __( 'New ###taxonomy-name### Name', '###theme-domain###'),
+            'menu_name' => __( '###taxonomy-name###', '###theme-domain###')
+        ],
+        'hierarchical' => true,
+        'show_ui' => true,
+        'public' => true,
+        'show_in_rest' => true,
+        'show_admin_column' => true,
+        // for_post_types is not part of the WordPress API,
+        // but is required for WP-Battery's taxonomy registration mechanism
+        'for_post_types' => [
+            '###post-type###'
+        ]
+    ],
+];

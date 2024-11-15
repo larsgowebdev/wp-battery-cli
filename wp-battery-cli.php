@@ -20,4 +20,6 @@ if ( defined('WP_CLI') && WP_CLI ) {
     \WP_CLI::add_command('create-wpb-page', [\Larsgowebdev\WPBatteryCli\Commands\CreatePageCommand::class, 'run']);
     \WP_CLI::add_command('create-wpb-menu', [\Larsgowebdev\WPBatteryCli\Commands\CreateMenuCommand::class, 'run']);
     \WP_CLI::add_command('create-wpb-options', [\Larsgowebdev\WPBatteryCli\Commands\CreateOptionsCommand::class, 'run']);
+    \WP_CLI::add_command('create-wpb-post-type', [\Larsgowebdev\WPBatteryCli\Commands\CreatePostTypesCommand::class, 'run']);
+    \WP_CLI::add_command('create-wpb-taxonomy', [\Larsgowebdev\WPBatteryCli\Commands\CreateTaxonomiesCommand::class, 'run']);
 }

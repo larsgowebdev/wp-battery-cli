@@ -1,0 +1,43 @@
+<?php
+
+return [
+    '###post-type-name###' => [
+        'label'               => __( '###post-type-name###', '###theme-domain###'),
+        'description'         => __( '###post-type-name###', '###theme-domain###'),
+        'labels'              => [
+            'name'                => _x( '###post-type-name###', 'Post Type General Name', '###theme-domain###'),
+            'singular_name'       => _x( '###post-type-name###', 'Post Type Singular Name', '###theme-domain###'),
+            'menu_name'           => __( '###post-type-name###', '###theme-domain###'),
+            'parent_item_colon'   => __( 'Parent ###post-type-name###', '###theme-domain###'),
+            'all_items'           => __( 'All ###post-type-name###', '###theme-domain###'),
+            'view_item'           => __( 'View ###post-type-name###', '###theme-domain###'),
+            'add_new_item'        => __( 'Add ###post-type-name###', '###theme-domain###'),
+            'add_new'             => __( 'Add New', '###theme-domain###'),
+            'edit_item'           => __( 'Edit ###post-type-name###', '###theme-domain###'),
+            'update_item'         => __( 'Update ###post-type-name###', '###theme-domain###'),
+            'search_items'        => __( 'Search ###post-type-name###', '###theme-domain###'),
+            'not_found'           => __( 'Not Found', '###theme-domain###'),
+            'not_found_in_trash'  => __( 'Not found in Trash', '###theme-domain###'),
+        ],
+        // Features this CPT supports in Post Editor
+        'supports'            => [
+            'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields', 'page-attributes'
+        ],
+        // You can associate this CPT with a taxonomy or custom taxonomy.
+        'taxonomies'          => [],
+        'hierarchical'        => true,
+        'public'              => true,
+        'show_ui'             => true,
+        'show_in_nav_menus'   => true,
+        'show_in_admin_bar'   => true,
+        'menu_position'       => 11,
+        'menu_icon'           => 'dashicons-clipboard',
+        'can_export'          => true,
+        'has_archive'         => false,
+        'exclude_from_search' => false,
+        'publicly_queryable'  => true,
+        'capability_type'     => 'post',
+        'map_meta_cap'        => true,
+        'show_in_rest'        => false, // this disables gutenberg for this post type! We want to use ACF forms on post level instead :)
+    ],
+];

@@ -17,6 +17,7 @@ if (!defined('ABSPATH')) {
 abstract class AbstractBlueprintCommand
 {
     protected string $blueprintType;
+    protected string $blueprintTypeName;
     protected array $requiredArgs = ['name'];
     protected array $markers = [];
     protected string $targetDirectory;
@@ -178,7 +179,7 @@ abstract class AbstractBlueprintCommand
             // Cleanup
             $this->removeDir($tempDir);
 
-            \WP_CLI::success(ucfirst($this->blueprintType) . " has been created!");
+            \WP_CLI::success(ucfirst($this->blueprintTypeName) . " has been created!");
         } catch (\Exception $e) {
             \WP_CLI::error($e->getMessage());
         }

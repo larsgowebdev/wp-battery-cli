@@ -19,6 +19,8 @@ class InitWpbCommand
         'cf7-templates',
         'menus',
         'options',
+        'post-types',
+        'taxonomies',
         'pages',
         'template-parts',
     ];
